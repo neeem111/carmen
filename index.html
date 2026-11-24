@@ -125,7 +125,7 @@ noscript{display:block;max-width:720px;margin:24px auto;padding:20px;border:2px 
     <a href="https://github.com/neeem111">GitHub</a> ·
     <a href="https://www.linkedin.com/in/carmen-crespo-143006330">LinkedIn</a> ·
     <a href="CarmenCrespoEN.pdf">CV (EN)</a> ·
-    <a href="CarmenCrespoES.pdf">CV (ES)</a>
+    <a href="CarmenCrespoCVES.pdf">CV (ES)</a>
   </p>
 </noscript>
 
@@ -224,7 +224,7 @@ const V={
   <div class="quick">
     <a class="btn" href="#projects">Projects</a>
     <a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a>
-    <a class="btn" href="CarmenCrespoES.pdf" download>CV (ES)</a>
+    <a class="btn" href="CarmenCrespoCVES.pdf" download>CV (ES)</a>
     <a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a>
   </div>
@@ -233,7 +233,7 @@ const V={
   projects:()=>`<h2>projects/</h2>${D.projects.map((p,i)=>`<details ${i?"":"open"}><summary>${e(p[0])}</summary><div><p>${e(p[1])}</p>${p[4]?`<pre class="arch">${e(p[4])}</pre>`:""}<div class="tags">${p[2].map(x=>`<span>${e(x)}</span>`).join("")}</div>${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${e(p[5]||"View link")}</a>`:""}</div></details>`).join("")}`,
   experiments:()=>`<h2>experiments/</h2>${D.exp.map(x=>`<details><summary>${e(x[0])}</summary><div><p>${e(x[1])}</p></div></details>`).join("")}`,
   stack:()=>`<h2>installed_packages</h2><dl style="margin:0">${D.stack.map(s=>`<div class="row"><dt>${e(s[0])}</dt><dd>${e(s[1])}</dd></div>`).join("")}</dl>`,
-  contact:()=>`<h2>contact.sh</h2><p>Got a role, a project or a CTF team? Send me a message.</p><div class="mail-row"><a href="mailto:${D.email}">${D.email}</a><button class="btn" id="copy-mail" type="button">Copy email</button></div><a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a><a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a><a class="btn" href="CarmenCrespoES.pdf" download>CV (ES)</a>`
+  contact:()=>`<h2>contact.sh</h2><p>Got a role, a project or a CTF team? Send me a message.</p><div class="mail-row"><a href="mailto:${D.email}">${D.email}</a><button class="btn" id="copy-mail" type="button">Copy email</button></div><a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a><a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a><a class="btn" href="CarmenCrespoCVES.pdf" download>CV (ES)</a>`
 };
 
 const NAV=[["home","HOME"],["about","ABOUT"],["projects","PROJECTS"],["experiments","LAB"],["stack","STACK"],["contact","CONTACT"]];
@@ -325,7 +325,7 @@ function initHome(){
     experiments:()=>go("experiments"),
     stack:()=>go("stack"),
     "cv en":()=>dl("CarmenCrespoEN.pdf"),
-    "cv es":()=>dl("CarmenCrespoES.pdf"),
+    "cv es":()=>dl("CarmenCrespoCVES.pdf"),
     contact:()=>"Email: "+A("mailto:"+D.email,D.email)+"\nLocation: Spain\nGitHub: "+A(D.gh)+"\nLinkedIn: "+A(D.li),
     github:()=>A(D.gh),
     linkedin:()=>A(D.li)
