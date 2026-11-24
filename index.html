@@ -3,51 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Carmen Crespo — Software Engineer</title>
+<title>Carmen Crespo — Software & AI Engineer</title>
+<meta name="description" content="Carmen Crespo Navarro — Software Engineer specializing in AI, RAG, multi-agent systems, Cloud, and Backend development.">
+<meta property="og:title" content="Carmen Crespo — Software & AI Engineer">
+<meta property="og:description" content="Interactive portfolio: AI, RAG, Cloud & Backend.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a1034'/><text x='50%' y='68%' text-anchor='middle' fill='%23ff2d87' font-family='monospace' font-size='56'>%3E_</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet">
 <style>
 :root{
-  --page:#e6e3d0; --case:#bdbb93; --case-l:#d6d4b0; --case-d:#8e8b66; --ink:#1d1d14;
+  --page:#e6e3d0; --case:#bdbb93; --case-l:#d6d4b0; --case-d:#8e8b66; --ink:#1d1d14; --key-txt:#1d1d14;
   --screen:#0a1034; --txt:#e8e5c6; --dim:#9aa0c8; --pink:#ff2d87; --line:#2a3470;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--page:#14150d;--case:#6f6e52;--case-l:#8a8869;--case-d:#403f2b;--ink:#14140d;color-scheme:dark}
+  :root:not([data-theme="light"]){--page:#14150d;--case:#5c5b44;--case-l:#757458;--case-d:#363524;--ink:#0f0f09;--key-txt:#f2efe0;color-scheme:dark}
 }
-:root[data-theme="dark"]{--page:#14150d;--case:#6f6e52;--case-l:#8a8869;--case-d:#403f2b;--ink:#14140d;color-scheme:dark}
+:root[data-theme="dark"]{--page:#14150d;--case:#5c5b44;--case-l:#757458;--case-d:#363524;--ink:#0f0f09;--key-txt:#f2efe0;color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--page);color:var(--ink);font:400 14px/1.6 "IBM Plex Mono",ui-monospace,Menlo,monospace}
-.vt{font-family:"VT323","Courier New",monospace}
 .pc{max-width:960px;margin:0 auto;padding:28px 16px 48px}
 .monitor{background:var(--case);border:2px solid var(--ink);border-radius:22px 22px 10px 10px;padding:22px 22px 12px;box-shadow:inset 0 -8px 0 var(--case-d),6px 6px 0 var(--ink)}
 .screen{position:relative;background:var(--screen);color:var(--txt);border:3px solid var(--ink);border-radius:10px;min-height:520px;padding:24px 28px 28px;box-shadow:inset 0 0 60px rgba(0,0,0,.55);overflow:hidden}
 .screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px)}
-.strip{display:flex;align-items:center;gap:10px;padding:10px 4px 0;font:16px "VT323",monospace;letter-spacing:.06em}
+.screen.no-scan::after{display:none}
+.strip{display:flex;align-items:center;gap:10px;padding:10px 4px 0;font:16px "VT323",monospace;letter-spacing:.06em;color:var(--key-txt)}
 .led{width:10px;height:10px;border-radius:50%;background:#35d05a;box-shadow:0 0 6px #35d05a}
 .strip .sp{flex:1}
-.knob{width:14px;height:14px;border-radius:50%;background:var(--case-l);border:2px solid var(--ink)}
+.knob{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:99px;background:var(--case-l);color:var(--key-txt);border:2px solid var(--ink);font:15px "VT323",monospace;user-select:none}
+.knob:hover{filter:brightness(1.08)}
+.knob:active{transform:translateY(1px)}
+.knob:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 a{color:var(--pink);text-underline-offset:3px}a:hover{color:#fff}
 :focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .screen h1{font:400 clamp(38px,7vw,64px)/.95 "VT323",monospace;margin:6px 0 4px;color:#fff;letter-spacing:.02em}
 .screen h2{font:400 30px/1 "VT323",monospace;margin:0 0 16px;color:var(--pink)}
 .prompt{font:20px "VT323",monospace;color:var(--dim);margin:0}
-.role{font:22px/1.2 "VT323",monospace;color:var(--txt);margin:0 0 22px}
-.cur{display:inline-block;width:10px;height:18px;background:var(--pink);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+.role{font:22px/1.2 "VT323",monospace;color:var(--txt);margin:0 0 18px}
+.cur{display:inline-block;width:10px;height:.75em;background:var(--pink);vertical-align:-.08em;margin-left:6px;animation:bl 1s steps(1) infinite}
 @keyframes bl{50%{opacity:0}}
-.widgets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.widgets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
 .w{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px 14px}
 .w b{display:block;font:18px "VT323",monospace;color:var(--dim);font-weight:400;margin-bottom:2px}
 .w .big{font:34px/1 "VT323",monospace;color:#fff}
 .w small{color:var(--dim);display:block;font-size:12px}
 .ok{display:inline-block;width:9px;height:9px;border-radius:50%;background:#35d05a;margin-right:8px}
-.term{border:1px solid var(--line);padding:12px 14px;font:19px/1.3 "VT323",monospace;min-height:150px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.quick .btn{margin:0;padding:2px 12px;font-size:18px}
+.term{border:1px solid var(--line);padding:12px 14px;font:19px/1.3 "VT323",monospace;min-height:150px;max-height:215px;overflow-y:auto;cursor:text}
 .term pre{margin:0 0 6px;white-space:pre-wrap;font:inherit;color:var(--txt)}
-.term label{color:var(--pink)}
-.term input{all:unset;color:#fff;width:70%;caret-color:var(--pink)}
+.term-in{display:flex;align-items:center;gap:6px}
+.term label{color:var(--pink);flex:0 0 auto}
+.term input{all:unset;color:#fff;flex:1;min-width:0;caret-color:var(--pink)}
 .screen p{max-width:64ch;margin:0 0 12px}
 details{border:1px solid var(--line);margin-bottom:10px;background:rgba(255,255,255,.03)}
 summary{cursor:pointer;padding:10px 14px;font:22px "VT323",monospace;list-style:none;color:#fff}
@@ -63,17 +74,21 @@ details>div{padding:0 14px 12px}
 /* keyboard */
 .deck{margin-top:18px;background:var(--case);border:2px solid var(--ink);border-radius:12px 12px 22px 22px;padding:16px;box-shadow:inset 0 -8px 0 var(--case-d),6px 6px 0 var(--ink)}
 .fkeys{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-bottom:14px}
-.k{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;background:var(--case-l);color:var(--ink);border:1px solid var(--ink);border-radius:6px;box-shadow:0 4px 0 var(--case-d);font:20px/1 "VT323",monospace;padding:9px 2px;user-select:none}
+.k{all:unset;box-sizing:border-box;cursor:pointer;text-align:center;background:var(--case-l);color:var(--key-txt);border:1px solid var(--ink);border-radius:6px;box-shadow:0 4px 0 var(--case-d);font:20px/1 "VT323",monospace;padding:9px 2px;user-select:none}
 .k:active{transform:translateY(3px);box-shadow:0 1px 0 var(--case-d)}
 .k:focus-visible{outline:3px solid var(--pink)}
 .k.f{background:var(--pink);color:#fff;font-size:19px}
 .k.f[aria-current="page"]{background:var(--ink);color:var(--pink)}
-.kb{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:7px}
-.kb .wide{grid-column:span 3}
+.kb{display:flex;flex-direction:column;gap:7px}
+.krow{display:flex;gap:6px;justify-content:center}
+.krow .k{flex:1;min-width:0}
+.krow .k.wide{flex:2.2}
+.krow .k.space{flex:4}
+noscript{display:block;max-width:720px;margin:24px auto;padding:20px;border:2px solid var(--ink);background:var(--screen);color:var(--txt)}
 @media (max-width:700px){
   .screen{padding:18px 16px 22px;min-height:440px}.monitor{padding:14px 14px 8px}
   .widgets{grid-template-columns:1fr}.row{grid-template-columns:1fr}
-  .fkeys{grid-template-columns:repeat(3,1fr)}.k{font-size:17px}
+  .fkeys{grid-template-columns:repeat(3,1fr)}.k{font-size:17px;padding:8px 1px}
 }
 @media (prefers-reduced-motion:reduce){.cur{animation:none}.k{transition:none}}
 </style>
@@ -82,7 +97,12 @@ details>div{padding:0 14px 12px}
 <main class="pc">
   <div class="monitor">
     <div class="screen" id="screen" aria-live="polite"></div>
-    <div class="strip"><span class="led"></span>POWER<span class="sp"></span><span class="knob"></span><span class="knob"></span><span class="knob"></span></div>
+    <div class="strip">
+      <span class="led" aria-hidden="true"></span>POWER
+      <span class="sp"></span>
+      <button class="knob" id="btn-scan" type="button" title="Toggle CRT scanlines" aria-label="Toggle CRT scanlines">CRT</button>
+      <button class="knob" id="btn-theme" type="button" title="Toggle light or dark theme" aria-label="Toggle theme">THEME</button>
+    </div>
   </div>
   <div class="deck">
     <nav class="fkeys" id="fkeys" aria-label="Sections"></nav>
@@ -90,78 +110,43 @@ details>div{padding:0 14px 12px}
   </div>
 </main>
 
+<noscript>
+  <h1>Carmen Crespo Navarro</h1>
+  <p>Software Engineer | AI & Cloud | Backend Development (Spain)</p>
+  <p>Email: <a href="mailto:cresponavarrocarmen@gmail.com">cresponavarrocarmen@gmail.com</a></p>
+  <p>
+    <a href="https://github.com/neeem111">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/carmen-crespo-143006330">LinkedIn</a> ·
+    <a href="CarmenCrespoEN.pdf">CV (EN)</a> ·
+    <a href="CarmenCrespoES.pdf">CV (ES)</a>
+  </p>
+</noscript>
+
 <script>
 const D={
- email:"cresponavarrocarmen@gmail.com",gh:"https://github.com/neeem111",li:"https://www.linkedin.com/in/carmen-crespo-143006330",
- about:["I’m a Computer Engineering graduate (University of Castilla-La Mancha, with an exchange year at the Polytechnic University of Valencia), specialised in AI, cloud and backend development.","I design agentic and multi-agent systems, RAG pipelines and cloud-deployed services, and I like taking an idea from the first spec all the way to production. I’ve led a technical department, worked in a large consulting environment and dealt directly with international clients.","I’m looking for my next role as a Software or AI Engineer, building with LLMs and cloud. Outside of work I play cybersecurity CTFs and tutor maths, physics and computer science."],
- projects:[
-  ["Agentic AI & RAG systems","Designed and built multi-agent systems and RAG pipelines over internal business documentation, using a spec-driven approach. Added LLM evaluation and observability, and shipped everything with Docker and CI/CD.",["Python","FastAPI","LangChain","LangGraph","MCP","Docker"]],
-  ["End-to-end business automation","Built automated workflows that connect a CRM, internal tools and AI agents, removing manual steps from day-to-day operations.",["n8n","Odoo","Python"]],
-  ["Conversational AI for retail","Part of the founding team of a conversational AI agent for a supermarket. Developed virtual assistants and automated business processes, and integrated databases into AI-powered applications.",["Python","Supabase","LLMs"]],
-  ["Cloud full-stack microservices","Developed full-stack solutions on a microservices architecture, deployed in the cloud. Gathered requirements and designed solutions with multidisciplinary teams using Scrum and Kanban.",["Angular","AWS","Docker"]],
-  ["Virtual Closet","A virtual wardrobe app built in Kotlin.",["Kotlin"],"https://github.com/neeem111/VirtualCloset"]
- ],
- exp:[["Software quality framework","Based on ISO/IEC 25010 and IEEE 829, with automated testing."],["Hotel e-commerce platform","Built end to end."],["Library and user management systems","Built end to end."],["Cybersecurity CTFs","Capture-the-flag competitions, for fun."]],
- stack:[["AI","LLMs, RAG, agentic and multi-agent systems, LangChain, LangGraph, MCP"],["Cloud","AWS (Bedrock), Azure (OpenAI / AI Foundry), GCP"],["Backend","Python (FastAPI), Java (Spring Boot), Node.js, REST APIs, SQL, Supabase"],["DevOps","Docker, CI/CD, Git, MLOps / LLMOps"],["Automation & Web","n8n, Odoo, Angular, WordPress, JavaScript, HTML/CSS"],["Methodologies","Spec-driven development, Scrum, Kanban"],["Other","C++, cybersecurity (CTFs)"]]
-};
-const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
-let timer=null;
-const V={
- home:()=>`<p class="prompt">A:\\&gt; carmen_crespo.exe</p><h1>Carmen Crespo Navarro</h1><p class="role">Software Engineer | AI &amp; Cloud | Backend Development</p>
-  <div class="widgets">
-   <div class="w"><b>local time</b><span class="big" id="clk">--:--:--</span><small id="dt"></small></div>
-   <div class="w"><b>status</b><span class="big"><i class="ok"></i>online</span><small>Open to new roles · Spain</small></div>
-   <div class="w"><b>education</b><span class="big">B.Sc. 2026</span><small>Computer Engineering · UCLM</small></div>
-  </div>
-  <div class="term" id="term"><pre id="out">Type help to see the available commands. You can type here or use the keyboard below.</pre><label>A:\\&gt; </label><input id="cmd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"><span class="cur"></span></div>`,
- about:()=>`<h2>about_me.txt</h2><details open><summary>About me</summary><div>${D.about.map(t=>`<p>${e(t)}</p>`).join("")}</div></details>`,
- projects:()=>`<h2>projects/</h2>${D.projects.map((p,i)=>`<details ${i?"":"open"}><summary>${e(p[0])}</summary><div><p>${e(p[1])}</p><div class="tags">${p[2].map(x=>`<span>${e(x)}</span>`).join("")}</div>${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">View on GitHub</a>`:""}</div></details>`).join("")}`,
- experiments:()=>`<h2>experiments/</h2>${D.exp.map(x=>`<details><summary>${e(x[0])}</summary><div><p>${e(x[1])}</p></div></details>`).join("")}`,
- stack:()=>`<h2>installed_packages</h2><dl style="margin:0">${D.stack.map(s=>`<div class="row"><dt>${e(s[0])}</dt><dd>${e(s[1])}</dd></div>`).join("")}</dl>`,
- contact:()=>`<h2>contact.sh</h2><p>Got a role, a project or a CTF team? Send me a message.</p><p><a href="mailto:${D.email}">${D.email}</a></p><a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a><a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a><a class="btn" href="CarmenCrespoES.pdf" download>CV (ES)</a>`
-};
-const NAV=[["home","HOME"],["about","ABOUT"],["projects","PROJECTS"],["experiments","LAB"],["stack","STACK"],["contact","CONTACT"]];
-const fk=document.getElementById("fkeys");
-fk.innerHTML=NAV.map(n=>`<button class="k f" data-n="${n[0]}">${n[1]}</button>`).join("");
-fk.addEventListener("click",ev=>{const b=ev.target.closest("button");if(b)location.hash=b.dataset.n});
-function show(){
-  const n=V[location.hash.slice(1)]?location.hash.slice(1):"home";
-  clearInterval(timer);
-  document.getElementById("screen").innerHTML=V[n]();
-  fk.querySelectorAll("button").forEach(b=>{if(b.dataset.n===n)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
-  if(n==="home")initHome();
-}
-function initHome(){
-  const c=document.getElementById("clk"),d=document.getElementById("dt");
-  const tick=()=>{const t=new Date();c.textContent=t.toLocaleTimeString("en-GB");d.textContent=t.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"})};
-  tick();timer=setInterval(tick,1000);
-  const out=document.getElementById("out"),inp=document.getElementById("cmd");
-  const A=(u,x)=>`<a href="${u}" target="_blank" rel="noopener">${x||u}</a>`;
-  const dl=f=>{const a=document.createElement("a");a.href=f;a.download=f;document.body.appendChild(a);a.click();a.remove();return "Downloading "+f+" ..."};
-  const R={
-   help:()=>"Available commands:\n  cv en      download my CV in English\n  cv es      download my CV in Spanish\n  contact    show my contact info\n  github     show my GitHub\n  linkedin   show my LinkedIn\n  clear      clear the screen",
-   "cv en":()=>dl("CarmenCrespoEN.pdf"),
-   "cv es":()=>dl("CarmenCrespoES.pdf"),
-   contact:()=>"Email: "+A("mailto:"+D.email,D.email)+"\nLocation: Spain\nGitHub: "+A(D.gh)+"\nLinkedIn: "+A(D.li),
-   github:()=>A(D.gh),
-   linkedin:()=>A(D.li)
-  };
-  inp.addEventListener("keydown",ev=>{if(ev.key==="Enter")run()});
-  window.run=()=>{const q=inp.value.trim().toLowerCase().replace(/\s+/g," ");inp.value="";
-    if(q==="clear"){out.innerHTML="";return}
-    out.innerHTML+="\nA:\\> "+e(q)+"\n"+(q?(R[q]?R[q]():"Unknown command: "+e(q)+". Type help"):"");};
-}
-const kb=document.getElementById("kb");
-const L="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-kb.innerHTML=L.map(c=>`<button class="k" data-c="${c.toLowerCase()}">${c}</button>`).join("")+`<button class="k wide" data-c=" ">SPACE</button><button class="k wide" data-c="del">DEL</button><button class="k wide f" data-c="enter">ENTER</button>`;
-kb.addEventListener("click",ev=>{
-  const b=ev.target.closest("button");if(!b)return;
-  const i=document.getElementById("cmd");
-  if(!i){location.hash="home";return}
-  const c=b.dataset.c;
-  if(c==="del")i.value=i.value.slice(0,-1);else if(c==="enter")window.run();else i.value+=c;
-});
-addEventListener("hashchange",show);show();
-</script>
-</body>
-</html>
+  email:"cresponavarrocarmen@gmail.com",
+  gh:"https://github.com/neeem111",
+  li:"https://www.linkedin.com/in/carmen-crespo-143006330",
+  about:[
+    "I’m a Computer Engineering graduate (University of Castilla-La Mancha, with an exchange year at the Polytechnic University of Valencia), specialised in AI, cloud and backend development.",
+    "I design agentic and multi-agent systems, RAG pipelines and cloud-deployed services, and I like taking an idea from the first spec all the way to production. I’ve led a technical department, worked in a large consulting environment and dealt directly with international clients.",
+    "I’m looking for my next role as a Software or AI Engineer, building with LLMs and cloud. Outside of work I play cybersecurity CTFs and tutor maths, physics and computer science."
+  ],
+  projects:[
+    ["Agentic AI & RAG systems","Designed and built multi-agent systems and RAG pipelines over internal business documentation, using a spec-driven approach. Added LLM evaluation and observability, and shipped everything with Docker and CI/CD.",["Python","FastAPI","LangChain","LangGraph","MCP","Docker"]],
+    ["End-to-end business automation","Built automated workflows that connect a CRM, internal tools and AI agents, removing manual steps from day-to-day operations.",["n8n","Odoo","Python"]],
+    ["Conversational AI for retail","Part of the founding team of a conversational AI agent for a supermarket. Developed virtual assistants and automated business processes, and integrated databases into AI-powered applications.",["Python","Supabase","LLMs"]],
+    ["Cloud full-stack microservices","Developed full-stack solutions on a microservices architecture, deployed in the cloud. Gathered requirements and designed solutions with multidisciplinary teams using Scrum and Kanban.",["Angular","AWS","Docker"]],
+    ["Virtual Closet","A virtual wardrobe app built in Kotlin.",["Kotlin"],"https://github.com/neeem111/VirtualCloset"]
+  ],
+  exp:[
+    ["Software quality framework","Based on ISO/IEC 25010 and IEEE 829, with automated testing."],
+    ["Hotel e-commerce platform","Built end to end."],
+    ["Library and user management systems","Built end to end."],
+    ["Cybersecurity CTFs","Capture-the-flag competitions, for fun."]
+  ],
+  stack:[
+    ["AI","LLMs, RAG, agentic and multi-agent systems, LangChain, LangGraph, MCP"],
+    ["Cloud","AWS (Bedrock), Azure (OpenAI / AI Foundry), GCP"],
+    ["Backend","Python (FastAPI), Java (Spring Boot), Node.js, REST APIs, SQL, Supabase"],
+    ["DevOps","Docker, CI/CD, Git, MLOps
