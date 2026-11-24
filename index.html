@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- flag{view_source_is_always_step_one} -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -46,6 +47,9 @@ a{color:var(--pink);text-underline-offset:3px}a:hover{color:#fff}
 .role{font:22px/1.2 "VT323",monospace;color:var(--txt);margin:0 0 18px}
 .cur{display:inline-block;width:10px;height:.75em;background:var(--pink);vertical-align:-.08em;margin-left:6px;animation:bl 1s steps(1) infinite}
 @keyframes bl{50%{opacity:0}}
+.boot{font:20px/1.4 "VT323",monospace;color:var(--txt);margin:0;white-space:pre-wrap}
+.boot .okt{color:#35d05a}
+.boot-skip{margin-top:18px;font:17px "VT323",monospace;color:var(--dim)}
 .widgets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
 .w{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:12px 14px}
 .w b{display:block;font:18px "VT323",monospace;color:var(--dim);font-weight:400;margin-bottom:2px}
@@ -65,12 +69,15 @@ summary{cursor:pointer;padding:10px 14px;font:22px "VT323",monospace;list-style:
 summary::-webkit-details-marker{display:none}
 summary::before{content:"> ";color:var(--pink)}details[open] summary::before{content:"v ";color:var(--pink)}
 details>div{padding:0 14px 12px}
+.arch{margin:10px 0;padding:10px 12px;border:1px dashed var(--line);background:rgba(0,0,0,.28);color:var(--dim);font:12px/1.35 "IBM Plex Mono",monospace;overflow-x:auto;white-space:pre}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .tags span{border:1px solid var(--pink);color:var(--pink);padding:0 8px;font-size:12px}
 .row{display:grid;grid-template-columns:200px 1fr;gap:4px 18px;padding:10px 0;border-bottom:1px solid var(--line)}
 .row dt{font:20px "VT323",monospace;color:var(--pink)}.row dd{margin:0}
-.btn{display:inline-block;margin:6px 10px 0 0;padding:4px 16px;border:2px solid var(--pink);color:var(--pink);text-decoration:none;font:20px "VT323",monospace}
+.btn{display:inline-block;margin:6px 10px 0 0;padding:4px 16px;border:2px solid var(--pink);background:transparent;color:var(--pink);text-decoration:none;font:20px "VT323",monospace;cursor:pointer}
 .btn:hover{background:var(--pink);color:var(--screen)}
+.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px}
+.mail-row .btn{margin:0;padding:1px 12px;font-size:18px}
 /* keyboard */
 .deck{margin-top:18px;background:var(--case);border:2px solid var(--ink);border-radius:12px 12px 22px 22px;padding:16px;box-shadow:inset 0 -8px 0 var(--case-d),6px 6px 0 var(--ink)}
 .fkeys{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-bottom:14px}
@@ -123,6 +130,15 @@ noscript{display:block;max-width:720px;margin:24px auto;padding:20px;border:2px 
 </noscript>
 
 <script>
+console.log(
+  "%c >_ CARMEN_OS v2.6 ",
+  "background:#0a1034;color:#ff2d87;font-size:16px;font-weight:bold;padding:6px 10px;border:2px solid #ff2d87;"
+);
+console.log(
+  "%c👀 Curioseando el código? Pista: prueba 'ls -la' en la terminal y entrega las flags con 'submit flag{...}'.",
+  "color:#9aa0c8;font-family:monospace;font-size:13px;"
+);
+
 const D={
   email:"cresponavarrocarmen@gmail.com",
   gh:"https://github.com/neeem111",
@@ -133,17 +149,52 @@ const D={
     "I’m looking for my next role as a Software or AI Engineer, building with LLMs and cloud. Outside of work I play cybersecurity CTFs and tutor maths, physics and computer science."
   ],
   projects:[
-    ["Agentic AI & RAG systems","Designed and built multi-agent systems and RAG pipelines over internal business documentation, using a spec-driven approach. Added LLM evaluation and observability, and shipped everything with Docker and CI/CD.",["Python","FastAPI","LangChain","LangGraph","MCP","Docker"]],
-    ["End-to-end business automation","Built automated workflows that connect a CRM, internal tools and AI agents, removing manual steps from day-to-day operations.",["n8n","Odoo","Python"]],
-    ["Conversational AI for retail","Part of the founding team of a conversational AI agent for a supermarket. Developed virtual assistants and automated business processes, and integrated databases into AI-powered applications.",["Python","Supabase","LLMs"]],
-    ["Cloud full-stack microservices","Developed full-stack solutions on a microservices architecture, deployed in the cloud. Gathered requirements and designed solutions with multidisciplinary teams using Scrum and Kanban.",["Angular","AWS","Docker"]],
-    ["Virtual Closet","A virtual wardrobe app built in Kotlin.",["Kotlin"],"https://github.com/neeem111/VirtualCloset"]
+    [
+      "Agentic AI & RAG systems",
+      "Designed and built multi-agent systems and RAG pipelines over internal business documentation, using a spec-driven approach. Added LLM evaluation and observability, and shipped everything with Docker and CI/CD.",
+      ["Python","FastAPI","LangChain","LangGraph","MCP","Docker"],
+      "",
+      "[Internal Docs] -> [Chunk & Embed] -> [Vector Store]\n                                            |\n[User] -> [FastAPI + MCP] -> [LangGraph Agents] -> [LLM Eval / Observability]",
+      ""
+    ],
+    [
+      "End-to-end business automation",
+      "Built automated workflows that connect a CRM, internal tools and AI agents, removing manual steps from day-to-day operations.",
+      ["n8n","Odoo","Python"],
+      "",
+      "[Trigger / Email] -> [n8n Workflow] -> [AI Agent] -> [Odoo CRM]\n                                            |\n                                     [Internal Tools]",
+      ""
+    ],
+    [
+      "SABIA — Conversational AI for retail",
+      "Part of the founding team of SABIA, a conversational AI assistant for supermarkets. Developed virtual assistants and automated business processes, and integrated databases into AI-powered applications.",
+      ["Python","Supabase","LLMs","n8n"],
+      "https://soysabia.es/",
+      "[Customer] -> [SABIA Conversational Agent] -> [Python Backend] -> [Supabase DB]",
+      "Visit SABIA"
+    ],
+    [
+      "Cloud full-stack microservices",
+      "Developed full-stack solutions on a microservices architecture, deployed in the cloud. Gathered requirements and designed solutions with multidisciplinary teams using Scrum and Kanban.",
+      ["Angular","AWS","Docker"],
+      "",
+      "[Angular SPA] -> [REST API Gateway] -> [Microservices] -> [Docker / AWS]",
+      ""
+    ],
+    [
+      "Virtual Closet",
+      "A virtual wardrobe app built in Kotlin.",
+      ["Kotlin"],
+      "https://github.com/neeem111/VirtualCloset",
+      "[Android UI (Kotlin)] -> [Filters & Rules] -> [Outfit Generator]",
+      "View on GitHub"
+    ]
   ],
   exp:[
-    ["Software quality framework","Based on ISO/IEC 25010 and IEEE 829, with automated testing."],
-    ["Hotel e-commerce platform","Built end to end."],
+    ["Software quality framework (Moodle plugin)","Designed an IEEE 829 Master Test Plan and automated QA suite (PHPUnit, Behat, Selenium) aligned with ISO/IEC 25010 for a Moodle activity plugin."],
+    ["Hotel e-commerce platform","Built end to end with PHP and MySQL."],
     ["Library and user management systems","Built end to end."],
-    ["Cybersecurity CTFs","Capture-the-flag competitions, for fun."]
+    ["Cybersecurity CTFs","Compete in Capture-the-Flag events (INCIBE Hack & Flags, TryHackMe, HackTheBox) focusing on web exploitation, crypto, reversing and forensics."]
   ],
   stack:[
     ["AI","LLMs, RAG, agentic and multi-agent systems, LangChain, LangGraph, MCP"],
@@ -160,6 +211,8 @@ const e=s=>String(s).replace(/[&<>"]/g,m=>"&"+({"&":"amp","<":"lt",">":"gt",'"':
 let timer=null;
 const hist=[];
 let hIdx=-1;
+const FLAGS=new Set(["flag{view_source_is_always_step_one}","flag{nice_try_recruiter_lets_talk}","flag{ctf_player_detected_hire_me}"]);
+const found=new Set();
 
 const V={
   home:()=>`<p class="prompt">A:\\> carmen_crespo.exe</p><h1>Carmen Crespo Navarro<span class="cur" aria-hidden="true"></span></h1><p class="role">Software Engineer | AI & Cloud | Backend Development</p>
@@ -175,12 +228,12 @@ const V={
     <a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a>
   </div>
-  <div class="term" id="term"><pre id="out">Type help to see available commands. Click here or use the keyboard below.</pre><div class="term-in"><label for="cmd">A:\\></label><input id="cmd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div></div>`,
+  <div class="term" id="term"><pre id="out">Type help or ask to get started. Click here or use the keyboard below.</pre><div class="term-in"><label for="cmd">A:\\></label><input id="cmd" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Command"></div></div>`,
   about:()=>`<h2>about_me.txt</h2><details open><summary>About me</summary><div>${D.about.map(t=>`<p>${e(t)}</p>`).join("")}</div></details>`,
-  projects:()=>`<h2>projects/</h2>${D.projects.map((p,i)=>`<details ${i?"":"open"}><summary>${e(p[0])}</summary><div><p>${e(p[1])}</p><div class="tags">${p[2].map(x=>`<span>${e(x)}</span>`).join("")}</div>${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">View on GitHub</a>`:""}</div></details>`).join("")}`,
+  projects:()=>`<h2>projects/</h2>${D.projects.map((p,i)=>`<details ${i?"":"open"}><summary>${e(p[0])}</summary><div><p>${e(p[1])}</p>${p[4]?`<pre class="arch">${e(p[4])}</pre>`:""}<div class="tags">${p[2].map(x=>`<span>${e(x)}</span>`).join("")}</div>${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${e(p[5]||"View link")}</a>`:""}</div></details>`).join("")}`,
   experiments:()=>`<h2>experiments/</h2>${D.exp.map(x=>`<details><summary>${e(x[0])}</summary><div><p>${e(x[1])}</p></div></details>`).join("")}`,
   stack:()=>`<h2>installed_packages</h2><dl style="margin:0">${D.stack.map(s=>`<div class="row"><dt>${e(s[0])}</dt><dd>${e(s[1])}</dd></div>`).join("")}</dl>`,
-  contact:()=>`<h2>contact.sh</h2><p>Got a role, a project or a CTF team? Send me a message.</p><p><a href="mailto:${D.email}">${D.email}</a></p><a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a><a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a><a class="btn" href="CarmenCrespoES.pdf" download>CV (ES)</a>`
+  contact:()=>`<h2>contact.sh</h2><p>Got a role, a project or a CTF team? Send me a message.</p><div class="mail-row"><a href="mailto:${D.email}">${D.email}</a><button class="btn" id="copy-mail" type="button">Copy email</button></div><a class="btn" href="${D.gh}" target="_blank" rel="noopener">GitHub</a><a class="btn" href="${D.li}" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="CarmenCrespoEN.pdf" download>CV (EN)</a><a class="btn" href="CarmenCrespoES.pdf" download>CV (ES)</a>`
 };
 
 const NAV=[["home","HOME"],["about","ABOUT"],["projects","PROJECTS"],["experiments","LAB"],["stack","STACK"],["contact","CONTACT"]];
@@ -209,6 +262,21 @@ function show(){
     else b.removeAttribute("aria-current");
   });
   if(n==="home")initHome();
+  if(n==="contact")initContact();
+}
+
+function initContact(){
+  const btn=document.getElementById("copy-mail");
+  if(!btn)return;
+  btn.addEventListener("click",async()=>{
+    try{
+      await navigator.clipboard.writeText(D.email);
+      btn.textContent="Copied!";
+      setTimeout(()=>btn.textContent="Copy email",1800);
+    }catch{
+      prompt("Copy email:",D.email);
+    }
+  });
 }
 
 function initHome(){
@@ -227,11 +295,30 @@ function initHome(){
   const dl=f=>{const a=document.createElement("a");a.href=f;a.download=f;document.body.appendChild(a);a.click();a.remove();return "Downloading "+f+" ..."};
   const go=sec=>{location.hash=sec;return "Opening "+sec+" ..."};
 
+  const ASK={
+    stack:"[agent] Core stack: Python (FastAPI), LangChain, LangGraph, MCP, RAG, Docker, AWS/Azure/GCP, Java, Node.js, n8n, Odoo.",
+    experience:"[agent] Led internal software & AI architecture (multi-agent/RAG/Odoo), built cloud microservices in consulting, and co-built SABIA (retail conversational AI).",
+    availability:"[agent] Open to Software Engineer / AI Engineer roles (Spain or remote). Ready to chat!",
+    languages:"[agent] Spanish (native) and English (C1 certified).",
+    education:"[agent] B.Sc. in Computer Engineering (UCLM, 2026) + exchange year at UPV.",
+    location:"[agent] Based in Spain (Valencia / Albacete), open to remote or hybrid.",
+    ctf:"[agent] I play cybersecurity CTFs (INCIBE, TryHackMe, HackTheBox). Hint: try 'ls -la' or check DevTools / robots.txt."
+  };
+
   const R={
-    help:()=>"Available commands:\n  about | projects | lab | stack | contact   open section\n  cv en / cv es    download my CV\n  github / linkedin / ls / whoami / clear",
+    help:()=>"Available commands:\n  about | projects | lab | stack | contact   open section\n  ask <topic>     offline Q&A (try: ask stack, ask experience, ask availability)\n  submit <flag>   submit CTF flags ("+found.size+"/"+FLAGS.size+" found)\n  cv en / cv es   download my CV\n  github / linkedin / ls / whoami / id / nmap / reboot / clear",
+    ask:()=>"Ask me about: stack, experience, availability, languages, education, location, ctf\nExample: ask stack",
+    submit:()=>"Usage: submit flag{...}  ("+found.size+"/"+FLAGS.size+" found)",
     ls:()=>"about_me.txt   projects/   experiments/   installed_packages   contact.sh   flag.txt",
+    "ls -a":()=>".   ..   .env   .hidden_flag   about_me.txt   projects/   experiments/   flag.txt",
+    "ls -la":()=>"drwxr-xr-x  carmen  .\n-rw-------  carmen  .env\n-rw-r--r--  carmen  .hidden_flag\n-rw-r--r--  carmen  about_me.txt\n-rw-r--r--  carmen  flag.txt\ndrwxr-xr-x  carmen  projects/",
     whoami:()=>"carmen — Software & AI Engineer (LLMs, RAG, Cloud, Backend)",
+    id:()=>"uid=1337(carmen) gid=1337(ai-eng) groups=1337(ai-eng),42(ctf),80(cloud)",
+    nmap:()=>"Starting Nmap 7.95 ( https://neeem111.github.io/carmen )\nPORT     STATE SERVICE\n22/tcp   open  ssh\n80/tcp   open  portfolio-http\n443/tcp  open  https\n8000/tcp open  fastapi-rag\nNmap done: 1 IP address (1 host up) scanned in 0.04s",
     "cat flag.txt":()=>"flag{nice_try_recruiter_lets_talk}",
+    "cat .env":()=>"OPENAI_API_KEY=nice_try_script_kiddie\nROLE=Software_AI_Engineer\nHINT=try cat .hidden_flag",
+    "cat .hidden_flag":()=>"ZmxhZ3tjdGZfcGxheWVyX2RldGVjdGVkX2hpcmVfbWV9\n(hint: base64 -d <string>)",
+    reboot:()=>{try{sessionStorage.removeItem("booted")}catch{}boot(true);return "Rebooting..."},
     about:()=>go("about"),
     projects:()=>go("projects"),
     lab:()=>go("experiments"),
@@ -258,13 +345,80 @@ function initHome(){
   });
 
   window.run=()=>{
-    const q=inp.value.trim().toLowerCase().replace(/\s+/g," ");
+    const raw=inp.value.trim().replace(/\s+/g," ");
+    const q=raw.toLowerCase();
     inp.value="";hIdx=-1;
-    if(q)hist.push(q);
+    if(q)hist.push(raw);
     if(q==="clear"){out.innerHTML="";return}
-    out.innerHTML+="\nA:\\> "+e(q)+"\n"+(q?(R[q]?R[q]():"Unknown command: "+e(q)+". Type help"):"");
+
+    let res="";
+    if(!q){res=""}
+    else if(R[q]){res=R[q]()}
+    else if(q.startsWith("ask ")){
+      const topic=q.slice(4).trim();
+      res=ASK[topic]||"Unknown topic: "+e(topic)+". Try: "+Object.keys(ASK).join(", ");
+    }else if(q.startsWith("submit ")){
+      const fl=raw.slice(7).trim();
+      if(FLAGS.has(fl)){
+        found.add(fl);
+        res=found.size===FLAGS.size
+          ?"Flag accepted! ("+found.size+"/"+FLAGS.size+") — You pwned the portfolio. Let's talk on "+A(D.li,"LinkedIn")+"!"
+          :"Flag accepted! ("+found.size+"/"+FLAGS.size+" found)";
+      }else{
+        res="Invalid flag. Keep digging!";
+      }
+    }else if(q.startsWith("sudo")){
+      res="carmen is not in the sudoers file. This incident will be reported.";
+    }else if(q.startsWith("base64 -d ")){
+      const b64=raw.slice(10).trim();
+      try{res=e(atob(b64))}catch{res="base64: invalid input"}
+    }else{
+      res="Unknown command: "+e(q)+". Type help";
+    }
+
+    out.innerHTML+="\nA:\\> "+e(raw)+"\n"+res;
     term.scrollTop=term.scrollHeight;
   };
+}
+
+// BIOS Boot Sequence (once per session, skippable)
+function boot(force){
+  let seen=false;
+  try{seen=sessionStorage.getItem("booted")==="1"}catch{}
+  if(!force&&(seen||matchMedia("(prefers-reduced-motion:reduce)").matches)){show();return}
+
+  const lines=[
+    "CARMEN-BIOS v2.6 (C) 2026",
+    "Checking memory... 640K <span class=\"okt\">OK</span>",
+    "Loading RAG_modules & LangGraph... <span class=\"okt\">OK</span>",
+    "Mounting /dev/cloud (AWS, Docker)... <span class=\"okt\">OK</span>",
+    "Starting carmen_crespo.exe..."
+  ];
+  let idx=0,done=false;
+  scr.innerHTML=`<pre class="boot" id="boot-log"></pre><p class="boot-skip">Press any key or click to skip...</p>`;
+  const log=document.getElementById("boot-log");
+
+  const finish=()=>{
+    if(done)return;
+    done=true;
+    clearInterval(bt);
+    removeEventListener("keydown",finish);
+    scr.removeEventListener("click",finish);
+    try{sessionStorage.setItem("booted","1")}catch{}
+    show();
+  };
+
+  addEventListener("keydown",finish);
+  scr.addEventListener("click",finish);
+
+  const bt=setInterval(()=>{
+    if(idx<lines.length){
+      log.innerHTML+=(idx?"\n":"")+lines[idx++];
+    }else{
+      setTimeout(finish,220);
+      clearInterval(bt);
+    }
+  },180);
 }
 
 // QWERTY on-screen keyboard
@@ -299,7 +453,8 @@ kb.addEventListener("click",ev=>{
   apply(i);
 });
 
-addEventListener("hashchange",show);show();
+addEventListener("hashchange",show);
+boot(false);
 </script>
 </body>
 </html>
