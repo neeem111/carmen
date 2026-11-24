@@ -156,7 +156,7 @@ const D={
   ]
 };
 
-const e=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&","<":"<",">":">",'"':"""}[m]));
+const e=s=>String(s).replace(/[&<>"]/g,m=>"&"+({"&":"amp","<":"lt",">":"gt",'"':"quot"}[m])+";");
 let timer=null;
 const hist=[];
 let hIdx=-1;
