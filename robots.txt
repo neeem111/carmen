@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /not-a-flag
+
+# Nice recon! Try 'ls -la' and 'cat .hidden_flag' in the terminal.
